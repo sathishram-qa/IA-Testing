@@ -1,6 +1,7 @@
 #!/bin/bash  
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-rvm rvmrc trust
+#rvm rvmrc trust
+rvm rvmrc to [.]ruby-version
 gem install bundler --no-rdoc --no-ri
 bundle install
 
