@@ -1,0 +1,35 @@
+Purpose: Demonstrate how Watir-Webdriver, Cucumber and Sikuli *might* work together
+
+What this does, is use watir-webdriver goodness to do all the web work and then delegates horrid UI to be verified by Sikuli instead.
+I few key warnings- 
+1) Its modal. If you have a window eg. command prompt, open in front of the browser, sikuli wont find the image.
+2) The opencv libraries are a nasty, nasty dependency. I've compiled them for you for Mac OS X, but all bets are off elsewhere for this demo.
+3) Due to .jar's for sikuli- this is Jruby land.
+4) I havent tested this on a clean workstation, will try it tonight and make whatever changes I can to make this machine independant.
+
+Setup:
+
+./setup
+./go
+
+Should result in this:
+/Projects/watir-webdriver_and_sikuli_example 58 $ bundle exec rake
+/Users/yomomma/.rvm/rubies/jruby-1.6.5/bin/jruby -S bundle exec cucumber  --profile everything
+Using the everything profile...
+@google_kitteh_searches
+Feature: Kitten lovers need to be able to find pictures of kittens on the internet
+
+  Scenario: As a cat lover I want to be able to find humorous pictures of kittens planking # features/google_search.feature:5
+    Given I am on the Google homepage                                                      # features/step_definitions/google_homepage_steps.rb:1
+    When I search for a "picture of a kitten planking"                                     # features/step_definitions/google_homepage_steps.rb:6
+    Then I am taken to the results of the search                                           # features/step_definitions/google_homepage_steps.rb:10
+[info] Sikuli vision engine loaded.
+    And there should be a picture of a planking kitten in the images suggestion            # features/step_definitions/google_homepage_steps.rb:14
+
+1 scenario (1 passed)
+4 steps (4 passed)
+0m13.859s
+Loaded suite /Users/yomomma/.rvm/gems/jruby-1.6.5@watirwebdriver_sikuli/bin/rake
+Started
+
+Finished in 0.001 seconds.

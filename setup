@@ -1,0 +1,6 @@
+#!/bin/bash  
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+rvm rvmrc trust
+gem install bundler --no-rdoc --no-ri
+bundle install
+

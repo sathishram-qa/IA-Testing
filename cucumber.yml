@@ -1,0 +1,1 @@
+everything: HEADLESS=TRUE -r features --color --format pretty --format html -o ../results.html SERVER=public
