@@ -8,4 +8,4 @@ gem "watir-webdriver", ">0"
 gem 'fivemat'
 gem 'rake'
 gem 'viewcumber'
-gem 'headless', :git => 'https://github.com/sathishram-qa/IA-Testing.git', :branch => 'wait-for-xvfb-to-launch'
+gem 'headless'
