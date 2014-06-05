@@ -12,7 +12,6 @@ dependencies:
     - gem install capybara
     - gem install selenium-webdriver
     - bundle
-    - bundle update selenium-webdriver
     #- apt-get selenium-java-2.37.0
   override:
     #- bundle install: # note ':' here
