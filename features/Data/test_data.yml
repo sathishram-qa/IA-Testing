@@ -1,6 +1,0 @@
-environments:
-  public:
-    base_url: "http://www.google.com.au"
-
-  secure:
-    base_url: "https://encrypted.google.com"
