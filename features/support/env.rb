@@ -5,7 +5,6 @@ require 'singleton'
 require 'sikuli'
 require 'java'
 require 'watir-webdriver'
-require 'headless'
 
 java_import "org.sikuli.script.SikuliScript"
 java_import "org.sikuli.script.Region"
@@ -29,11 +28,11 @@ def verify_underlined_link_to(name)
 end
 
 Sikuli::Config.run do |config|
-	path_name = File.absolute_path(File.join(File.dirname(__FILE__),"../Images/"))
-  	# Finding the operating sysytem in case windows then replace the / slash with \
-    	if path_name.match(/^D:\//)
-      		path_name.gsub!(/\//, "\\")
-    	end 
+  path_name = File.absolute_path(File.join(File.dirname(__FILE__),"../Images/"))
+    # Finding the operating sysytem in case windows then replace the / slash with \
+      if path_name.match(/^D:\//)
+          path_name.gsub!(/\//, "\\")
+      end 
   puts path_name
   config.image_path = path_name
   config.logging = false
@@ -83,24 +82,24 @@ end
 
 
 module Datasvcauth
-	def datasvc_auth(username,password)
-		visit("http://#{username}:#{password}@data.stage.intelligentarray.com/")
- 		sleep 20
-	end
+  def datasvc_auth(username,password)
+    visit("http://#{username}:#{password}@data.stage.intelligentarray.com/")
+    sleep 20
+  end
 end
 
 
 module Downloadpath
-	def download_dir(downpath)
-		"#{downpath}"
-	end
+  def download_dir(downpath)
+    "#{downpath}"
+  end
 end
 
-	module GlobalVar
-	   def var_access()
-	      $download_directory = "C:\\drakerfile"
-	    end
-	end  
+  module GlobalVar
+     def var_access()
+        $download_directory = "C:\\drakerfile"
+      end
+  end  
 
 
 World(GlobalVar)
@@ -116,12 +115,6 @@ After do |scenario|
     embed("#{scenario.__id__}.png", "image/png", "SCREENSHOT")
   end
 end
-
-Capybara.register_driver :selenium_chrome do |app|   
-  Capybara::Selenium::Driver.new(app, :browser => :chrome)
-end
-
-#Capybara.default_driver = :selenium
-#Capybara.app_host = "https://app.intelligentarray.com/login"
+Capybara.default_driver = :selenium
+Capybara.app_host = "https://app.intelligentarray.com/login"
 #Capybara.ignore_hidden_elements = false
-
