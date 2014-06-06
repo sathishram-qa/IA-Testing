@@ -9,18 +9,7 @@ Background:
 Scenario Outline: I want to verify equipment is displayed under SiteViews/Data Acquisition
 
 		   Given I click the "<project>" page
-		   When I click to "Site Views.png" links
-		   Then I navigate to Data Acquisition page
-		   When I click on to "Inv.png" equipment
-		   Then I should navigates to inverter details page
-
-
+		   
 Examples: Project List 
 |project                    		   |                     
 |Lemoore District Office.png           |
-|Lemoore Engvall Elementary School.png |
-|Lemoore Liberty Middle School.png     |
-|Lemoore Meadow Elementary School.png  |
-|MJUSD Boron District Office.png       |
-|MJUSD Boron High School.png           |
-|MJUSD West Boron Elementary.png       |

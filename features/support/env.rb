@@ -5,6 +5,7 @@ require 'singleton'
 require 'sikuli'
 require 'java'
 require 'watir-webdriver'
+require 'headless'
 
 java_import "org.sikuli.script.SikuliScript"
 java_import "org.sikuli.script.Region"
@@ -115,7 +116,12 @@ After do |scenario|
     embed("#{scenario.__id__}.png", "image/png", "SCREENSHOT")
   end
 end
-Capybara.default_driver = :selenium
-Capybara.app_host = "https://app.intelligentarray.com/login"
+
+Capybara.register_driver :selenium_chrome do |app|   
+  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+end
+
+#Capybara.default_driver = :selenium
+#Capybara.app_host = "https://app.intelligentarray.com/login"
 #Capybara.ignore_hidden_elements = false
 
