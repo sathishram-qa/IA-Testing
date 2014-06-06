@@ -67,7 +67,7 @@ module SessionSteps
     fill_in 'password', :with =>password
     click_on "Login"
     sleep 3
-    visit(current_path)
+    #visit(current_path)
     sleep 5
   end
 end
